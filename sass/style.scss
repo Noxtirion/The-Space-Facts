@@ -1,0 +1,16 @@
+*,
+*:before,
+*:after {
+   box-sizing: border-box;
+}
+
+body {
+   margin: 0px;
+}
+
+@import "_variables.scss";
+@import "_header.scss";
+@import "_slider.scss";
+@import "_gallery.scss";
+@import "_article.scss";
+@import "_footer.scss"

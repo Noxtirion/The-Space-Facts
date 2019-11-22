@@ -1,0 +1,75 @@
+$button-color-red: darkred;
+$button-color-blue: darkblue;
+$header-title-bg-color: rgba(0, 0, 0, 0.5);
+
+$breakpoints: (
+   xsmall: (
+      min-width: 460px
+   ),
+   small: (
+      min-width: 640px
+   ),
+   medium: (
+      min-width: 800px
+   ),
+   large: (
+      min-width: 1024px
+   ),
+   xlarge: (
+      min-width: 1200px
+   ),
+   xxlarge: (
+      min-width: 1440px
+   )
+);
+
+@mixin media-query($breakpoint) {
+   $size: map-get($breakpoints, $breakpoint);
+   @if ($size) {
+      @media #{$size} {
+         @content;
+      }
+   } @else {
+      @error '"#{$breakpoint}" - wrong value!';
+   }
+}
+
+@mixin containers($width: 100%, $overflow: hidden, $height: 30vw) {
+   width: $width;
+   overflow: $overflow;
+   height: $height;
+   @content;
+}
+
+@mixin buttons-slider($color, $height: 5em, $width: 5em) {
+   background: $color;
+   width: $height;
+   height: $width;
+   border-radius: 50%;
+   box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.5);
+   border: 0px;
+   border-bottom: solid 3px $color;
+   transition: 0.2s;
+   cursor: pointer;
+}
+
+@mixin buttons-slider-activate {
+   transform: translateY(5px);
+   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
+   border-bottom: none;
+}
+
+@mixin header-title(
+   $position: absolute,
+   $background-color: $header-title-bg-color,
+   $height: 40%,
+   $width: 80%,
+   $top: 15%
+) {
+   position: $position;
+   background-color: $header-title-bg-color;
+   height: $height;
+   width: $width;
+   top: $top;
+   @content;
+}

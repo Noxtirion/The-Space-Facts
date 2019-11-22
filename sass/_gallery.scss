@@ -1,0 +1,11 @@
+.gallery__container {
+   @include containers($height: 50vw);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: darkgrey;
+   .gallery__picture {
+      display: block;
+      height: 90%;
+   }
+}

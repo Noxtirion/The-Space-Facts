@@ -1,0 +1,18 @@
+.header__container {
+   @include containers($height: auto);
+   position: relative;
+   .header__image {
+      display: block;
+      width: 100vw;
+   }
+   .header__title--big {
+      @include header-title;
+   }
+   .header__title--small {
+      @include header-title($height: 20%, $width: 60%, $top: 60%);
+      // transition: width 2s;
+   }
+   // .header__title--loaded {
+   //    width: 100%;
+   // }
+}

@@ -1,0 +1,26 @@
+.slider__container {
+   @include containers;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+
+.slider__button--red {
+   @include buttons-slider($button-color-red);
+   &:active {
+      @include buttons-slider-activate;
+   }
+   &:hover {
+      background: rgb(100, 0, 0);
+   }
+}
+
+.slider__button--blue {
+   @include buttons-slider($button-color-blue);
+   &:active {
+      @include buttons-slider-activate;
+   }
+   &:hover {
+      background: rgb(0, 0, 100);
+   }
+}
