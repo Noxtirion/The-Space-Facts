@@ -64,12 +64,16 @@ $breakpoints: (
    $background-color: $header-title-bg-color,
    $height: 40%,
    $width: 80%,
-   $top: 15%
+   $top: 15%,
+   $display: flex,
+   $align-items: center
 ) {
    position: $position;
    background-color: $header-title-bg-color;
    height: $height;
    width: $width;
    top: $top;
+   display: $display;
+   align-items: $align-items;
    @content;
 }

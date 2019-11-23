@@ -1,4 +1,36 @@
-.footer__container {
-   @include containers();
+.footer-info__container {
+   @include containers($height: auto);
    background-color: darkgrey;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   flex-wrap: wrap;
+   .footer-info__title {
+      display: flex;
+      flex-basis: 100%;
+      justify-content: center;
+   }
+   .footer-info__box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 10rem;
+      width: 8rem;
+      margin: 5px;
+      background-color: lightgray;
+      p {
+         font-size: 1rem;
+         margin: 0.1rem;
+      }
+      .footer-info__subtitle {
+         display: flex;
+         flex-direction: column;
+         width: 100%;
+         align-items: center;
+      }
+      h3 {
+         margin: 0.1rem;
+      }
+   }
 }
