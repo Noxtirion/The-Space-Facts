@@ -6,9 +6,30 @@
    align-items: center;
    flex-wrap: wrap;
    .footer-info__title {
-      display: flex;
-      flex-basis: 100%;
-      justify-content: center;
+      @include titles;
+      width: 100%;
+      padding: 1rem;
+      h2 {
+         padding: 0.5rem;
+      }
+      .footer-info__button--temp {
+         @include buttons($button-color-red);
+         &:active {
+            @include buttons-activate;
+         }
+         &:hover {
+            background: lighten($button-color-red, 10%);
+         }
+      }
+      .footer-info__button--wind {
+         @include buttons($button-color-blue);
+         &:active {
+            @include buttons-activate;
+         }
+         &:hover {
+            background: lighten($button-color-blue, 25%);
+         }
+      }
    }
    .footer-info__box {
       display: flex;
@@ -16,12 +37,13 @@
       justify-content: center;
       align-items: flex-start;
       height: 10rem;
-      width: 8rem;
+      width: 9rem;
       margin: 5px;
       background-color: lightgray;
       p {
          font-size: 1rem;
          margin: 0.1rem;
+         padding-left: 0.2rem;
       }
       .footer-info__subtitle {
          display: flex;

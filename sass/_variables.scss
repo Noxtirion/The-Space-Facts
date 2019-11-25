@@ -1,6 +1,7 @@
-$button-color-red: darkred;
-$button-color-blue: darkblue;
+$button-color-red: rgba(139, 0, 0, 0.6);
+$button-color-blue: rgba(0, 0, 139, 0.6);
 $header-title-bg-color: rgba(0, 0, 0, 0.5);
+$border-button-color: darkgrey;
 
 $breakpoints: (
    xsmall: (
@@ -41,22 +42,23 @@ $breakpoints: (
    @content;
 }
 
-@mixin buttons-slider($color, $height: 5em, $width: 5em) {
+@mixin buttons($color, $height: 5rem, $width: 5rem) {
    background: $color;
    width: $height;
    height: $width;
-   border-radius: 50%;
+   margin: 5px 10px;
    box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.5);
    border: 0px;
-   border-bottom: solid 3px $color;
-   transition: 0.2s;
+   border-radius: 5%;
+   color: #fff;
+   font-size: large;
+   transition: box-shadow 0.1s, transform 0.1s;
    cursor: pointer;
 }
 
-@mixin buttons-slider-activate {
+@mixin buttons-activate {
    transform: translateY(5px);
    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
-   border-bottom: none;
 }
 
 @mixin header-title(
@@ -75,5 +77,14 @@ $breakpoints: (
    top: $top;
    display: $display;
    align-items: $align-items;
+   @content;
+}
+
+@mixin titles() {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   padding: 0.5rem;
    @content;
 }
