@@ -1,12 +1,16 @@
 function handleErrors(res) {
    if (!res.ok) {
-      document.querySelector(
-         ".gallery__container"
-      ).innerHTML = `<p>Sorry, there is no picture to display on this date.</p>`;
+      document.querySelector(".gallery__container").innerHTML =
+         "<p>Sorry, there is no picture to display on this date.</p>";
+      document.querySelector(".article__title").innerHTML =
+         "<p>Sorry, there is no article to display on this date.</p>";
+      document.querySelector(".article__text").innerHTML = "<p></p>";
       throw Error(res.statusText);
    }
    return res.json();
 }
+
+// &date=1995-06-22
 
 fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
    .then(handleErrors)
@@ -18,9 +22,10 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
       const textContainer = document.querySelector(".article__text");
       const slideButtons = document.querySelectorAll(".slider__button");
       const sliderDateText = document.querySelector(".slider__date");
+      const sliderYearText = document.querySelector(".slider__date--year");
+      const sliderMonthText = document.querySelector(".slider__date--month");
       let currentDate = moment(res.date).format("YYYY-MM-DD");
 
-      console.log(currentDate);
       if (res.media_type !== "image") {
          pictureContainer.innerHTML = `<img class="gallery__picture" src="./img/Moon.png" alt="Picture Of The Day"/><p>Sorry, no image available.</p>`;
          res.media_type = "image";
@@ -30,27 +35,35 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
       titleContainer.innerHTML = `${res.title}`;
       textContainer.innerHTML = `${res.explanation}`;
       sliderDateText.innerHTML = `${currentDate}`;
+      sliderYearText.innerHTML = `${currentDate.substring(0, 4)}`;
+      sliderMonthText.innerHTML = `${currentDate.substring(5, 7)}`;
 
       slideButtons.forEach(item => {
          item.addEventListener("click", function dec(e) {
-            if (res.media_type === "image" && e.target.classList[1] === "slider__button--red") {
+            if (e.target.classList[2] === "slider__button--prev") {
                currentDate = moment(currentDate).subtract(1, "day");
                currentDate = moment
                   .max(moment(currentDate), moment("1995-06-16"))
                   .format("YYYY-MM-DD");
-               console.log(res.media_type);
-               console.log(currentDate);
-               console.log(e.target.classList[1]);
-               // console.log(res.media_type);
-            } else if (
-               res.media_type === "image" &&
-               e.target.classList[1] === "slider__button--blue"
-            ) {
+            } else if (e.target.classList[2] === "slider__button--next") {
                currentDate = moment(currentDate).add(1, "day");
                currentDate = moment.min(moment(currentDate), moment(res.date)).format("YYYY-MM-DD");
-               console.log(currentDate);
-               console.log(res.date);
-               console.log(e.target.classList[1]);
+            } else if (e.target.classList[2] === "slider__button--next-year") {
+               currentDate = moment(currentDate).add(1, "year");
+               currentDate = moment.min(moment(currentDate), moment(res.date)).format("YYYY-MM-DD");
+            } else if (e.target.classList[2] === "slider__button--prev-year") {
+               currentDate = moment(currentDate).subtract(1, "year");
+               currentDate = moment
+                  .max(moment(currentDate), moment("1995-06-16"))
+                  .format("YYYY-MM-DD");
+            } else if (e.target.classList[2] === "slider__button--next-month") {
+               currentDate = moment(currentDate).add(1, "month");
+               currentDate = moment.min(moment(currentDate), moment(res.date)).format("YYYY-MM-DD");
+            } else if (e.target.classList[2] === "slider__button--prev-month") {
+               currentDate = moment(currentDate).subtract(1, "month");
+               currentDate = moment
+                  .max(moment(currentDate), moment("1995-06-16"))
+                  .format("YYYY-MM-DD");
             }
 
             fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${currentDate}`)
@@ -66,8 +79,9 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
                   titleContainer.innerHTML = `${res.title}`;
                   textContainer.innerHTML = `${res.explanation}`;
                   sliderDateText.innerHTML = `${currentDate}`;
+                  sliderYearText.innerHTML = `${currentDate.substring(0, 4)}`;
+                  sliderMonthText.innerHTML = `${currentDate.substring(5, 7)}`;
                })
-
                .catch(err => console.log(err));
          });
       });
