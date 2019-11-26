@@ -72,7 +72,7 @@ p {
 .slider__container {
   width: 100%;
   overflow: hidden;
-  height: 10rem;
+  height: 30rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -168,6 +168,21 @@ p {
 }
 
 .slider__container h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  padding: 0.5rem;
+  margin: 0rem;
+}
+
+.slider__container h3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
