@@ -1,27 +1,41 @@
 .slider__container {
-   @include containers;
+   @include containers($height: 30rem);
    display: flex;
-   justify-content: center;
+   justify-content: space-evenly;
    align-items: center;
-   .slider__button--red {
-      @include buttons($button-color-red);
-      &:active {
-         @include buttons-activate;
+   flex-direction: column;
+
+   .slider__wrapper {
+      @include titles;
+      width: 100%;
+      p {
+         padding: 0.5rem;
+         min-width: 7rem;
       }
-      &:hover {
-         background: lighten($button-color-red, 10%);
+      .slider__button--red {
+         @include buttons($button-color-red);
+         &:active {
+            @include buttons-activate;
+         }
+         &:hover {
+            background: lighten($button-color-red, 10%);
+         }
+      }
+      .slider__button--blue {
+         @include buttons($button-color-blue);
+         &:active {
+            @include buttons-activate;
+         }
+         &:hover {
+            background: lighten($button-color-blue, 25%);
+         }
       }
    }
-   .slider__button--blue {
-      @include buttons($button-color-blue);
-      &:active {
-         @include buttons-activate;
-      }
-      &:hover {
-         background: lighten($button-color-blue, 25%);
-      }
-   }
+
    h2 {
+      @include titles;
+   }
+   h3 {
       @include titles;
    }
 }
