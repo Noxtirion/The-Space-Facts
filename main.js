@@ -15,9 +15,9 @@ function handleErrors(res) {
 fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
    .then(handleErrors)
    .then(res => {
-      console.log(res);
+      // console.log(res);
 
-      const pictureContainer = document.querySelector(".gallery__container");
+      const pictureContainer = document.querySelector(".gallery__img");
       const titleContainer = document.querySelector(".article__title");
       const textContainer = document.querySelector(".article__text");
       const slideButtons = document.querySelectorAll(".slider__button");
@@ -27,7 +27,7 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
       let currentDate = moment(res.date).format("YYYY-MM-DD");
 
       if (res.media_type !== "image") {
-         pictureContainer.innerHTML = `<img class="gallery__picture" src="./img/Moon.png" alt="Picture Of The Day"/><p>Sorry, no image available.</p>`;
+         pictureContainer.innerHTML = `<img class="gallery__picture" style="border: 0px" src="./img/Moon.png" alt="Picture Of The Day"/><p>Sorry, no image available.</p>`;
          res.media_type = "image";
       } else {
          pictureContainer.innerHTML = `<img class="gallery__picture" src="${res.url}" alt="Picture Of The Day"/>`;
@@ -70,7 +70,7 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
                .then(handleErrors)
                .then(res => {
                   if (res.media_type !== "image") {
-                     pictureContainer.innerHTML = `<img class="gallery__picture" src="./img/Moon.png" alt="Picture Of The Day"/><p>Sorry, no image available.</p>`;
+                     pictureContainer.innerHTML = `<img class="gallery__picture" style="border: 0px" src="./img/Moon.png" alt="Picture Of The Day"/><p>Sorry, no image available.</p>`;
                      // console.log(e);
                      // dec(e);
                   } else {
@@ -93,11 +93,11 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
 fetch("https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0")
    .then(res => res.json())
    .then(res => {
-      console.log(res);
+      //  console.log(res);
       const tempContainer = document.querySelectorAll(".footer-info__box");
       const solKey = res.sol_keys;
-      console.log(solKey.map(sol => res[sol].AT.mx));
-      console.log(solKey.map(sol => res[sol].HWS.mx));
+      // console.log(solKey.map(sol => res[sol].AT.mx));
+      // console.log(solKey.map(sol => res[sol].HWS.mx));
       const maxTemp = solKey.map(sol => res[sol].AT.mx);
       const minTemp = solKey.map(sol => res[sol].AT.mn);
       const avTemp = solKey.map(sol => res[sol].AT.av);
