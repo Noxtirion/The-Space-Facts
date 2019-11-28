@@ -1,19 +1,22 @@
 .slider__container {
-   @include containers($height: 30rem);
-   display: flex;
-   justify-content: space-evenly;
-   align-items: center;
-   flex-direction: column;
-
+   @include containers($height: 42rem);
+   @include flex-container;
+   border-top: 5px solid lighten($background-color, $border-value);
+   border-bottom: 5px solid lighten($background-color, $border-value);
+   @include media-query(medium) {
+      border: 0px;
+   }
    .slider__wrapper {
       @include titles;
       width: 100%;
       p {
-         padding: 0.5rem;
+         padding: 0.4rem;
          min-width: 7rem;
+         margin: 0rem;
+         color: $h-color;
       }
       .slider__button--red {
-         @include buttons($button-color-red);
+         @include buttons($button-color-red, 3rem);
          &:active {
             @include buttons-activate;
          }
@@ -22,7 +25,7 @@
          }
       }
       .slider__button--blue {
-         @include buttons($button-color-blue);
+         @include buttons($button-color-blue, 3rem);
          &:active {
             @include buttons-activate;
          }
@@ -34,8 +37,10 @@
 
    h2 {
       @include titles;
+      color: $h-color;
    }
    h3 {
       @include titles;
+      color: $h-color;
    }
 }

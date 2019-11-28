@@ -1,13 +1,29 @@
 .gallery__container {
-   @include containers($height: 50vw);
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background-color: darkgrey;
-   flex-direction: column;
-   .gallery__picture {
-      max-height: 90%;
+   @include containers($height: 50rem);
+   @include flex-container;
+   background-color: $background-color;
+   @include media-query(medium) {
+      height: 45vw;
+      flex-direction: row;
+      border-top: 5px solid lighten($background-color, $border-value);
+      border-bottom: 5px solid lighten($background-color, $border-value);
    }
+   .gallery__img {
+      @include flex-container;
+      height: 90%;
+      width: 100%;
+      padding: 0.5rem;
+      border-bottom: 5px solid lighten($background-color, $border-value);
+      @include media-query(medium) {
+         border: 0px;
+      }
+      .gallery__picture {
+         max-height: 100%;
+         max-width: 100%;
+         border: 5px solid lighten($background-color, $border-value);
+      }
+   }
+
    p {
       margin: 0;
       text-align: center;

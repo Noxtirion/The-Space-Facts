@@ -1,16 +1,16 @@
 .footer-info__container {
    @include containers($height: auto);
-   background-color: darkgrey;
-   display: flex;
-   justify-content: space-evenly;
-   align-items: center;
+   background-color: $background-color;
+   border-top: 5px solid lighten($background-color, $border-value);
+   @include flex-container($justify-content: space-evenly, $flex-direction: row);
    flex-wrap: wrap;
    .footer-info__title {
       @include titles;
       width: 100%;
-      padding: 1rem;
+      padding: 0.5rem;
       h2 {
          padding: 0.5rem;
+         color: $h-color;
       }
       .footer-info__button--temp {
          @include buttons($button-color-red);
@@ -32,13 +32,11 @@
       }
    }
    .footer-info__box {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
+      @include flex-container($align-items: flex-start);
       height: 10rem;
       width: 9rem;
       margin: 5px;
+      border-radius: 5%;
       background-color: lightgray;
       p {
          font-size: 1rem;
@@ -46,10 +44,8 @@
          padding-left: 0.2rem;
       }
       .footer-info__subtitle {
-         display: flex;
-         flex-direction: column;
+         @include flex-container;
          width: 100%;
-         align-items: center;
       }
       h3 {
          margin: 0.1rem;
