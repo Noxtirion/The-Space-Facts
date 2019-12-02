@@ -1,3 +1,10 @@
+window.addEventListener("load", () => {
+   const headerBig = document.querySelector(".header__title--big");
+   const headerSmall = document.querySelector(".header__title--small");
+   headerBig.classList.toggle("header__title--big-grow");
+   headerSmall.classList.toggle("header__title--small-grow");
+});
+
 function handleErrors(res) {
    if (!res.ok) {
       document.querySelector(".gallery__container").innerHTML =
@@ -93,17 +100,26 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
 fetch("https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0")
    .then(res => res.json())
    .then(res => {
-      //  console.log(res);
       const tempContainer = document.querySelectorAll(".footer-info__box");
       const solKey = res.sol_keys;
-      // console.log(solKey.map(sol => res[sol].AT.mx));
-      // console.log(solKey.map(sol => res[sol].HWS.mx));
-      const maxTemp = solKey.map(sol => res[sol].AT.mx);
-      const minTemp = solKey.map(sol => res[sol].AT.mn);
-      const avTemp = solKey.map(sol => res[sol].AT.av);
-      const maxWind = solKey.map(sol => res[sol].HWS.mx);
-      const minWind = solKey.map(sol => res[sol].HWS.mn);
-      const avWind = solKey.map(sol => res[sol].HWS.av);
+
+      // function that checks if values exists to prevent undefined error
+      function checkValue(kind, value) {
+         return solKey.map(function(sol) {
+            if (!res[sol][kind] || !res[sol][kind][value]) {
+               return "NO DATA ";
+            } else {
+               return res[sol][kind][value];
+            }
+         });
+      }
+
+      const maxTemp = checkValue("AT", "mx");
+      const minTemp = checkValue("AT", "mn");
+      const avTemp = checkValue("AT", "av");
+      const maxWind = checkValue("HWS", "mx");
+      const minWind = checkValue("HWS", "mn");
+      const avWind = checkValue("HWS", "av");
       const actualDate = solKey.map(sol => res[sol].First_UTC);
       const months = {
          0: "Jan.",
