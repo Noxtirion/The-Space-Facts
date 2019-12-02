@@ -36,7 +36,7 @@
    }
 }
 
-.header__title--big {
+.header__title--big-grow {
    animation-name: growH1;
    animation-duration: 2s;
    animation-fill-mode: forwards;
@@ -51,7 +51,7 @@
    }
 }
 
-.header__title--small {
+.header__title--small-grow {
    animation-name: growH2;
    animation-duration: 3s;
    animation-fill-mode: forwards;
@@ -65,14 +65,14 @@
       opacity: 1;
    }
 }
-.header__title--big h1 {
+.header__title--big-grow h1 {
    animation-name: growText;
    animation-duration: 2s;
    animation-delay: 2s;
    animation-fill-mode: forwards;
 }
 
-.header__title--small h2 {
+.header__title--small-grow h2 {
    animation-name: growText;
    animation-duration: 1s;
    animation-delay: 3s;
