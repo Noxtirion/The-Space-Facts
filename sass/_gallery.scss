@@ -10,12 +10,13 @@
    }
    .gallery__img {
       @include flex-container;
-      height: 90%;
+      height: 50%;
       width: 100%;
       padding: 0.5rem;
       border-bottom: 5px solid lighten($background-color, $border-value);
       @include media-query(medium) {
          border: 0px;
+         height: 90%;
       }
       .gallery__picture {
          max-height: 100%;
