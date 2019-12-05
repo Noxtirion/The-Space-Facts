@@ -16,7 +16,7 @@
       }
    }
    .header__title--small {
-      @include header-title($height: 20%, $width: 60%, $top: 60%);
+      @include header-title($height: 20%, $top: 60%);
       h2 {
          color: rgba(255, 255, 255, 0.6);
          font-size: 4vw;
