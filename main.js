@@ -107,7 +107,7 @@ fetch("https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=
       function checkValue(kind, value) {
          return solKey.map(function(sol) {
             if (!res[sol][kind] || !res[sol][kind][value]) {
-               return "NO DATA ";
+               return 0;
             } else {
                return res[sol][kind][value];
             }
