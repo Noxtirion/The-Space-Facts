@@ -24,14 +24,16 @@ p {
 
 .header__container .header__image {
   display: block;
-  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  background: url(../img/milky-way-3840x2160-stars-4k-20311.jpg) no-repeat bottom center/cover;
 }
 
 .header__container .header__title--big {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
   height: 40%;
-  width: 0%;
+  width: 100%;
   top: 15%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -43,7 +45,7 @@ p {
 
 .header__container .header__title--big h1 {
   color: #fff;
-  font-size: 8vw;
+  font-size: 2.5rem;
   opacity: 0;
   margin: auto 0;
   padding-left: 0.5rem;
@@ -53,7 +55,7 @@ p {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
   height: 20%;
-  width: 0%;
+  width: 100%;
   top: 60%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -65,64 +67,10 @@ p {
 
 .header__container .header__title--small h2 {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 4vw;
+  font-size: 1rem;
   opacity: 0;
   margin: auto 0;
   padding-left: 0.5rem;
-}
-
-@-webkit-keyframes growH1 {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 80%;
-  }
-}
-
-@keyframes growH1 {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 80%;
-  }
-}
-
-.header__title--big-grow {
-  -webkit-animation-name: growH1;
-          animation-name: growH1;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes growH2 {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 60%;
-  }
-}
-
-@keyframes growH2 {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 60%;
-  }
-}
-
-.header__title--small-grow {
-  -webkit-animation-name: growH2;
-          animation-name: growH2;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
 }
 
 @-webkit-keyframes growText {
