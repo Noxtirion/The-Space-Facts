@@ -80,14 +80,14 @@ $breakpoints: (
 @mixin header-title(
    $position: absolute,
    $background-color: $header-title-bg-color,
-   $height: 40%,
+   $height: auto,
    $width: 100%,
    $top: 15%,
    $display: flex,
    $align-items: center
 ) {
    position: $position;
-   background-color: $header-title-bg-color;
+   // background-color: $header-title-bg-color;
    height: $height;
    width: $width;
    top: $top;

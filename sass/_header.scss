@@ -8,23 +8,49 @@
       background: url(../img/milky-way-3840x2160-stars-4k-20311.jpg) no-repeat bottom center / cover;
    }
    .header__title--big {
-      @include header-title;
+      @include header-title($top: 15%);
       h1 {
          color: #fff;
-         font-size: 2.5rem;
+         font-size: 2.2rem;
          opacity: 0;
-         margin: auto 0;
-         padding-left: 0.5rem;
+         margin: 0 auto;
+         padding: 0.5rem;
+         text-shadow: 3px 3px 5px black;
+         @include media-query(xsmall) {
+            font-size: 3rem;
+         }
+         @include media-query(small) {
+            font-size: 4rem;
+         }
+         @include media-query(medium) {
+            font-size: 5rem;
+         }
+         @include media-query(xlarge) {
+            font-size: 7rem;
+         }
       }
    }
    .header__title--small {
-      @include header-title($height: 20%, $top: 60%);
+      @include header-title($top: 50%);
       h2 {
          color: rgba(255, 255, 255, 0.6);
-         font-size: 1rem;
+         font-size: 0.8rem;
          opacity: 0;
-         margin: auto 0;
-         padding-left: 0.5rem;
+         margin: 0 auto;
+         padding: 0.5rem;
+         text-shadow: 3px 3px 5px black;
+         @include media-query(xsmall) {
+            font-size: 1.1rem;
+         }
+         @include media-query(small) {
+            font-size: 1.4rem;
+         }
+         @include media-query(medium) {
+            font-size: 1.7rem;
+         }
+         @include media-query(xlarge) {
+            font-size: 1.9rem;
+         }
       }
    }
 }
@@ -70,13 +96,13 @@
 .header__title--big-grow h1 {
    animation-name: growText;
    animation-duration: 2s;
-   animation-delay: 2s;
+   animation-delay: 1s;
    animation-fill-mode: forwards;
 }
 
 .header__title--small-grow h2 {
    animation-name: growText;
    animation-duration: 1s;
-   animation-delay: 3s;
+   animation-delay: 2s;
    animation-fill-mode: forwards;
 }
