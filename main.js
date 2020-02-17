@@ -97,7 +97,7 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
 
 //////////////////////// This is footer
 
-fetch("https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0")
+fetch(`https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0`)
    .then(res => res.json())
    .then(res => {
       const tempContainer = document.querySelectorAll(".footer-info__box");

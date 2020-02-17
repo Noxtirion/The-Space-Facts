@@ -1,4 +1,5 @@
 .footer-info__container {
+   padding-bottom: 1rem;
    @include containers($height: auto);
    background-color: $background-color;
    border-top: 5px solid lighten($background-color, $border-value);

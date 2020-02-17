@@ -144,8 +144,8 @@ p {
           animation-name: growText;
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -155,8 +155,8 @@ p {
           animation-name: growText;
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -302,6 +302,19 @@ p {
   color: #fff;
 }
 
+.gallery {
+  border-top: 5px solid #bcc6cf;
+}
+
+.gallery__title {
+  text-align: center;
+}
+
+.gallery__title h2 {
+  padding: 0.2rem;
+  font-size: 1.3rem;
+}
+
 .gallery__container {
   width: 100%;
   overflow: hidden;
@@ -389,6 +402,7 @@ p {
 }
 
 .footer-info__container {
+  padding-bottom: 1rem;
   width: 100%;
   overflow: hidden;
   height: auto;
