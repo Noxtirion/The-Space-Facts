@@ -178,3 +178,30 @@ window.addEventListener("DOMContentLoaded", () => {
       })
       .catch(err => console.log(err));
 });
+
+// Intersection observer to hidden header title
+
+function intersection() {
+   const mainArticle = document.querySelector(".article");
+   const headerTitle = document.querySelector(".header__title--big");
+
+   const titleOptions = {
+      threshold: 0
+      // rootMargin: "0px 0px -150px 0px"
+   };
+
+   const hideTitle = new IntersectionObserver(function(entries, hideTitle) {
+      entries.forEach(entry => {
+         if (entry.isIntersecting) {
+            headerTitle.classList.add("disappear");
+         } else {
+            headerTitle.classList.remove("disappear");
+         }
+         console.log(entry.isIntersecting);
+      });
+   }, titleOptions);
+
+   hideTitle.observe(mainArticle);
+}
+
+intersection();
