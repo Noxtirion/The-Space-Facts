@@ -1,11 +1,15 @@
-.article__container {
-   @include containers($height: auto);
-   .article__title {
-      text-align: center;
-      padding: 0.5rem;
-   }
-   .article__text {
-      text-align: justify;
-      padding: 0.5rem;
+.article {
+   @include position-relative;
+   background-color: $section-color;
+   &__container {
+      @include containers($height: auto);
+      .article__title {
+         text-align: center;
+         padding: 0.5rem;
+      }
+      .article__text {
+         text-align: justify;
+         padding: 0.5rem;
+      }
    }
 }

@@ -1,55 +1,58 @@
-.footer-info__container {
-   padding-bottom: 1rem;
-   @include containers($height: auto);
-   background-color: $background-color;
-   border-top: 5px solid lighten($background-color, $border-value);
-   @include flex-container($justify-content: space-evenly, $flex-direction: row);
-   flex-wrap: wrap;
-   .footer-info__title {
-      @include titles;
-      width: 100%;
-      padding: 0.5rem;
-      h2 {
-         padding: 0.5rem;
-         color: $h-color;
-      }
-      .footer-info__button--temp {
-         @include buttons($button-color-red);
-         &:active {
-            @include buttons-activate;
-         }
-         &:hover {
-            background: lighten($button-color-red, 10%);
-         }
-      }
-      .footer-info__button--wind {
-         @include buttons($button-color-blue);
-         &:active {
-            @include buttons-activate;
-         }
-         &:hover {
-            background: lighten($button-color-blue, 25%);
-         }
-      }
-   }
-   .footer-info__box {
-      @include flex-container($align-items: flex-start);
-      height: 10rem;
-      width: 9rem;
-      margin: 5px;
-      border-radius: 5%;
-      background-color: lightgray;
-      p {
-         font-size: 1rem;
-         margin: 0.1rem;
-         padding-left: 0.2rem;
-      }
-      .footer-info__subtitle {
-         @include flex-container;
+.footer-info {
+   @include position-relative;
+   &__container {
+      padding-bottom: 1rem;
+      @include containers($height: auto);
+      background-color: $background-color;
+      border-top: 5px solid lighten($background-color, $border-value);
+      @include flex-container($justify-content: space-evenly, $flex-direction: row);
+      flex-wrap: wrap;
+      .footer-info__title {
+         @include titles;
          width: 100%;
+         padding: 0.5rem;
+         h2 {
+            padding: 0.5rem;
+            color: $h-color;
+         }
+         .footer-info__button--temp {
+            @include buttons($button-color-red);
+            &:active {
+               @include buttons-activate;
+            }
+            &:hover {
+               background: lighten($button-color-red, 10%);
+            }
+         }
+         .footer-info__button--wind {
+            @include buttons($button-color-blue);
+            &:active {
+               @include buttons-activate;
+            }
+            &:hover {
+               background: lighten($button-color-blue, 25%);
+            }
+         }
       }
-      h3 {
-         margin: 0.1rem;
+      .footer-info__box {
+         @include flex-container($align-items: flex-start);
+         height: 10rem;
+         width: 9rem;
+         margin: 5px;
+         border-radius: 5%;
+         background-color: lightgray;
+         p {
+            font-size: 1rem;
+            margin: 0.1rem;
+            padding-left: 0.2rem;
+         }
+         .footer-info__subtitle {
+            @include flex-container;
+            width: 100%;
+         }
+         h3 {
+            margin: 0.1rem;
+         }
       }
    }
 }

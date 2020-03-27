@@ -1,7 +1,11 @@
 .gallery {
    border-top: 5px solid lighten($background-color, $border-value);
+   @include position-relative;
    &__title {
       text-align: center;
+      margin: 0;
+      padding: 1.5rem;
+      background-color: $section-color;
       h2 {
          padding: 0.2rem;
          font-size: 1.3rem;

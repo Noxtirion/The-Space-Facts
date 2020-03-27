@@ -19,21 +19,23 @@ p {
   width: 100%;
   overflow: hidden;
   height: auto;
-  position: relative;
+  position: fixed;
 }
 
 .header__container .header__image {
   display: block;
   height: 100vh;
   margin: 0 auto;
-  background: url(../img/milky-way-3840x2160-stars-4k-20311.jpg) no-repeat bottom center/cover;
+  background: url(../img/space_planet_sky_94434_3840x2160.jpg) no-repeat bottom center/cover;
+  -webkit-animation: color 20s linear infinite;
+          animation: color 20s linear infinite;
 }
 
 .header__container .header__title--big {
   position: absolute;
   height: auto;
   width: 100%;
-  top: 15%;
+  top: 35%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -89,7 +91,7 @@ p {
 }
 
 .header__container .header__title--small h2 {
-  color: rgba(255, 255, 255, 0.6);
+  color: white;
   font-size: 0.8rem;
   opacity: 0;
   margin: 0 auto;
@@ -139,6 +141,10 @@ p {
   }
 }
 
+.disappear {
+  opacity: 0;
+}
+
 .header__title--big-grow h1 {
   -webkit-animation-name: growText;
           animation-name: growText;
@@ -148,6 +154,7 @@ p {
           animation-delay: 0.5s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
+  z-index: 10;
 }
 
 .header__title--small-grow h2 {
@@ -159,6 +166,36 @@ p {
           animation-delay: 1.5s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes color {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  50% {
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+}
+
+@keyframes color {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  50% {
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
 }
 
 .slider__container {
@@ -213,13 +250,13 @@ p {
 }
 
 .slider__container .slider__wrapper .slider__button--red {
-  background: rgba(139, 0, 0, 0.6);
+  background: #93003c;
   width: 5rem;
   height: 3rem;
   margin: 5px 10px;
   -webkit-box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.5);
           box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.5);
-  border: 0px;
+  border: 2px solid #fff;
   border-radius: 5%;
   color: #fff;
   font-size: large;
@@ -238,17 +275,17 @@ p {
 }
 
 .slider__container .slider__wrapper .slider__button--red:hover {
-  background: rgba(190, 0, 0, 0.6);
+  background: #c60051;
 }
 
 .slider__container .slider__wrapper .slider__button--blue {
-  background: rgba(0, 0, 139, 0.6);
+  background: #008a98;
   width: 5rem;
   height: 3rem;
   margin: 5px 10px;
   -webkit-box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.5);
           box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.5);
-  border: 0px;
+  border: 2px solid #fff;
   border-radius: 5%;
   color: #fff;
   font-size: large;
@@ -267,7 +304,7 @@ p {
 }
 
 .slider__container .slider__wrapper .slider__button--blue:hover {
-  background: rgba(12, 12, 255, 0.6);
+  background: #19eaff;
 }
 
 .slider__container h2 {
@@ -304,10 +341,15 @@ p {
 
 .gallery {
   border-top: 5px solid #bcc6cf;
+  position: relative;
+  top: 100vh;
 }
 
 .gallery__title {
   text-align: center;
+  margin: 0;
+  padding: 1.5rem;
+  background-color: rgba(128, 128, 128, 0.7);
 }
 
 .gallery__title h2 {
@@ -385,6 +427,12 @@ p {
   text-align: center;
 }
 
+.article {
+  position: relative;
+  top: 100vh;
+  background-color: rgba(128, 128, 128, 0.7);
+}
+
 .article__container {
   width: 100%;
   overflow: hidden;
@@ -399,6 +447,11 @@ p {
 .article__container .article__text {
   text-align: justify;
   padding: 0.5rem;
+}
+
+.footer-info {
+  position: relative;
+  top: 100vh;
 }
 
 .footer-info__container {
@@ -448,13 +501,13 @@ p {
 }
 
 .footer-info__container .footer-info__title .footer-info__button--temp {
-  background: rgba(139, 0, 0, 0.6);
+  background: #93003c;
   width: 5rem;
   height: 5rem;
   margin: 5px 10px;
   -webkit-box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.5);
           box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.5);
-  border: 0px;
+  border: 2px solid #fff;
   border-radius: 5%;
   color: #fff;
   font-size: large;
@@ -473,17 +526,17 @@ p {
 }
 
 .footer-info__container .footer-info__title .footer-info__button--temp:hover {
-  background: rgba(190, 0, 0, 0.6);
+  background: #c60051;
 }
 
 .footer-info__container .footer-info__title .footer-info__button--wind {
-  background: rgba(0, 0, 139, 0.6);
+  background: #008a98;
   width: 5rem;
   height: 5rem;
   margin: 5px 10px;
   -webkit-box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.5);
           box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.5);
-  border: 0px;
+  border: 2px solid #fff;
   border-radius: 5%;
   color: #fff;
   font-size: large;
@@ -502,7 +555,7 @@ p {
 }
 
 .footer-info__container .footer-info__title .footer-info__button--wind:hover {
-  background: rgba(12, 12, 255, 0.6);
+  background: #19eaff;
 }
 
 .footer-info__container .footer-info__box {
