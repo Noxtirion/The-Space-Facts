@@ -1,13 +1,11 @@
 function titleLoad() {
    const headerBig = document.querySelector(".header__title--big");
-   const headerSmall = document.querySelector(".header__title--small");
    headerBig.classList.toggle("header__title--big-grow");
-   headerSmall.classList.toggle("header__title--small-grow");
 }
 
 function handleErrors(res) {
    if (!res.ok) {
-      document.querySelector(".gallery__container").innerHTML =
+      document.querySelector(".gallery__img").innerHTML =
          "<p>Sorry, there is no picture to display on this date.</p>";
       document.querySelector(".article__title").innerHTML =
          "<p>Sorry, there is no article to display on this date.</p>";
@@ -17,15 +15,11 @@ function handleErrors(res) {
    return res.json();
 }
 
-// &date=1995-06-22
-
 window.addEventListener("DOMContentLoaded", () => {
    titleLoad();
    fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
       .then(handleErrors)
       .then(res => {
-         // console.log(res);
-
          const pictureContainer = document.querySelector(".gallery__img");
          const titleContainer = document.querySelector(".article__title");
          const textContainer = document.querySelector(".article__text");
@@ -86,8 +80,6 @@ window.addEventListener("DOMContentLoaded", () => {
                   .then(res => {
                      if (res.media_type !== "image") {
                         pictureContainer.innerHTML = `<img class="gallery__picture" style="border: 0px" src="./img/Moon.png" alt="Picture Of The Day"/><p>Sorry, no image available.</p>`;
-                        // console.log(e);
-                        // dec(e);
                      } else {
                         pictureContainer.innerHTML = `<img class="gallery__picture" src="${res.url}" alt="Picture Of The Day"/>`;
                      }
@@ -103,7 +95,7 @@ window.addEventListener("DOMContentLoaded", () => {
       })
       .catch(err => console.log(err));
 
-   //////////////////////// This is footer
+   // Footer
 
    fetch(`https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0`)
       .then(res => res.json())
@@ -112,6 +104,7 @@ window.addEventListener("DOMContentLoaded", () => {
          const solKey = res.sol_keys;
 
          // function that checks if values exists to prevent undefined error
+
          function checkValue(kind, value) {
             return solKey.map(function(sol) {
                if (!res[sol][kind] || !res[sol][kind][value]) {
@@ -179,25 +172,28 @@ window.addEventListener("DOMContentLoaded", () => {
       .catch(err => console.log(err));
 });
 
-// Intersection observer to hidden header title
+// Intersection observer to hide header title and pointer button
 
 function intersection() {
    const mainArticle = document.querySelector(".article");
    const headerTitle = document.querySelector(".header__title--big");
+   const headerPointer = document.querySelector(".header__pointer");
 
    const titleOptions = {
       threshold: 0
-      // rootMargin: "0px 0px -150px 0px"
    };
 
    const hideTitle = new IntersectionObserver(function(entries, hideTitle) {
       entries.forEach(entry => {
          if (entry.isIntersecting) {
-            headerTitle.classList.add("disappear");
+            [headerTitle, headerPointer].forEach(item => {
+               item.classList.add("disappear");
+            });
          } else {
-            headerTitle.classList.remove("disappear");
+            [headerTitle, headerPointer].forEach(item => {
+               item.classList.remove("disappear");
+            });
          }
-         console.log(entry.isIntersecting);
       });
    }, titleOptions);
 
@@ -205,3 +201,16 @@ function intersection() {
 }
 
 intersection();
+
+//////// Smooth scroll
+
+$(".header__pointer a").smoothScroll({
+   offset: 0,
+   afterScroll: function() {
+      $(this)
+         .closest(".header__pointer")
+         .find("a")
+         .removeClass("active");
+      $(this).addClass("active");
+   }
+});
