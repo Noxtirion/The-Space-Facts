@@ -1,5 +1,5 @@
 .article {
-   @include position-relative;
+   @include position-transform;
    background-color: $section-color;
    &__container {
       @include containers($height: auto);

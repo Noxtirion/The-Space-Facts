@@ -1,5 +1,5 @@
 .footer-info {
-   @include position-relative;
+   @include position-transform;
    &__container {
       padding-bottom: 1rem;
       @include containers($height: auto);

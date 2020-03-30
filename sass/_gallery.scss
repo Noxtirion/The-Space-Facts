@@ -1,6 +1,6 @@
 .gallery {
    border-top: 1px solid lighten($background-color, $border-value);
-   @include position-relative;
+   @include position-transform;
    &__title {
       text-align: center;
       margin: 0;

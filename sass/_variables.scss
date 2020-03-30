@@ -106,8 +106,7 @@ $breakpoints: (
    @content;
 }
 
-@mixin position-relative() {
-   position: relative;
-   top: 100vh;
+@mixin position-transform() {
+   transform: translateY(100vh);
    @content;
 }

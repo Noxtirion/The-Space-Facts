@@ -82,7 +82,7 @@ p {
   z-index: 10;
   width: 100%;
   height: 7rem;
-  bottom: 0.5rem;
+  bottom: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -378,8 +378,8 @@ p {
 
 .gallery {
   border-top: 1px solid #9eadb9;
-  position: relative;
-  top: 100vh;
+  -webkit-transform: translateY(100vh);
+          transform: translateY(100vh);
 }
 
 .gallery__title {
@@ -467,8 +467,8 @@ p {
 }
 
 .article {
-  position: relative;
-  top: 100vh;
+  -webkit-transform: translateY(100vh);
+          transform: translateY(100vh);
   background-color: rgba(0, 0, 0, 0.85);
 }
 
@@ -493,8 +493,8 @@ p {
 }
 
 .footer-info {
-  position: relative;
-  top: 100vh;
+  -webkit-transform: translateY(100vh);
+          transform: translateY(100vh);
 }
 
 .footer-info__container {
