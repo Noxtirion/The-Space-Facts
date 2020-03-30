@@ -24,8 +24,12 @@
                   The Space Facts
                </h1>
             </div>
-            <div class="header__title header__title--small">
-               <h2>Every cubic inch of space is a miracle...</h2>
+            <div class="header__pointer">
+               <a href="#pointerAnchor" class="header__wrapper">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+               </a>
             </div>
             <div
                class="header__image"
@@ -35,10 +39,11 @@
          </div>
       </section>
 
-      <section class="gallery">
+      <section class="gallery" id="pointerAnchor">
          <div class="gallery__title"><h2>Astronomy Picture Of the Day</h2></div>
          <div class="gallery__container">
             <div class="slider__container">
+               <h3 class="slider__text">DATE SELECTOR:</h3>
                <div class="slider__wrapper">
                   <button class="slider__button slider__button--red slider__button--prev">
                      <<
@@ -97,7 +102,12 @@
          </div>
       </section>
 
-      <script src="main.js"></script>
+      <!-- Vendor -->
+
       <script src="./js-vendor/moment-with-locales.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="./js-vendor/vendor.min.js"></script>
+
+      <script src="main.js"></script>
    </body>
 </html>
