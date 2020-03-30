@@ -4,7 +4,7 @@
       padding-bottom: 1rem;
       @include containers($height: auto);
       background-color: $background-color;
-      border-top: 5px solid lighten($background-color, $border-value);
+      border-top: 1px solid lighten($background-color, $border-value);
       @include flex-container($justify-content: space-evenly, $flex-direction: row);
       flex-wrap: wrap;
       .footer-info__title {

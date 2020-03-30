@@ -1,11 +1,11 @@
-$button-color-red: #93003c;
+$button-color-red: #a76967;
 $button-color-blue: #008a98;
 $header-title-bg-color: rgba(0, 0, 0, 0.5);
 $border-button-color: darkgrey;
-$background-color: #3b4751;
+$background-color: #252d33;
 $border-value: 50%;
 $h-color: #fff;
-$section-color: rgba(128, 128, 128, 0.7);
+$section-color: rgba(0, 0, 0, 0.85);
 
 $breakpoints: (
    xsmall: (
@@ -65,7 +65,7 @@ $breakpoints: (
    height: $height;
    margin: 5px 10px;
    box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.5);
-   border: 2px solid #fff;
+   border: 1px solid #fff;
    border-radius: 5%;
    color: #fff;
    font-size: large;
@@ -88,7 +88,6 @@ $breakpoints: (
    $align-items: center
 ) {
    position: $position;
-   // background-color: $header-title-bg-color;
    height: $height;
    width: $width;
    top: $top;

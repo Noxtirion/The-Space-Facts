@@ -1,12 +1,17 @@
 .slider__container {
    @include containers($height: 25rem);
    @include flex-container;
-   border-top: 5px solid lighten($background-color, $border-value);
-   border-bottom: 5px solid lighten($background-color, $border-value);
+   border-top: 1px solid lighten($background-color, $border-value);
+   border-bottom: 1px solid lighten($background-color, $border-value);
    @include media-query(medium) {
       border: 0px;
       height: 45vw;
    }
+
+   .slider__text {
+      margin-bottom: 1rem;
+   }
+
    .slider__wrapper {
       @include titles;
       width: 100%;
