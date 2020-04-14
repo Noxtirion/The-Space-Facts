@@ -1,6 +1,6 @@
 # The Space Facts
 
-> Extra information about space.
+> Informations about space.
 
 ## General info
 
@@ -16,6 +16,6 @@ A project that use NASA Open APIs which show some pictures and facts about space
 
 -  BEM
 
-## Status
+## Live
 
-Project is in progress.
+[Live](https://noxtirion.github.io/The-Space-Facts/)
