@@ -19,7 +19,7 @@ window.addEventListener("DOMContentLoaded", () => {
    titleLoad();
    fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
       .then(handleErrors)
-      .then(res => {
+      .then((res) => {
          const pictureContainer = document.querySelector(".gallery__img");
          const titleContainer = document.querySelector(".article__title");
          const textContainer = document.querySelector(".article__text");
@@ -41,7 +41,7 @@ window.addEventListener("DOMContentLoaded", () => {
          sliderYearText.innerHTML = `${currentDate.substring(0, 4)}`;
          sliderMonthText.innerHTML = `${currentDate.substring(5, 7)}`;
 
-         slideButtons.forEach(item => {
+         slideButtons.forEach((item) => {
             item.addEventListener("click", function dec(e) {
                if (e.target.classList[2] === "slider__button--prev") {
                   currentDate = moment(currentDate).subtract(1, "day");
@@ -77,7 +77,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
                fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${currentDate}`)
                   .then(handleErrors)
-                  .then(res => {
+                  .then((res) => {
                      if (res.media_type !== "image") {
                         pictureContainer.innerHTML = `<img class="gallery__picture" style="border: 0px" src="./img/Moon.png" alt="Picture Of The Day"/><p>Sorry, no image available.</p>`;
                      } else {
@@ -89,24 +89,24 @@ window.addEventListener("DOMContentLoaded", () => {
                      sliderYearText.innerHTML = `${currentDate.substring(0, 4)}`;
                      sliderMonthText.innerHTML = `${currentDate.substring(5, 7)}`;
                   })
-                  .catch(err => console.log(err));
+                  .catch((err) => console.log(err));
             });
          });
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
 
    // Footer
 
    fetch(`https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0`)
-      .then(res => res.json())
-      .then(res => {
+      .then((res) => res.json())
+      .then((res) => {
          const tempContainer = document.querySelectorAll(".footer-info__box");
          const solKey = res.sol_keys;
 
          // function that checks if values exists to prevent undefined error
 
          function checkValue(kind, value) {
-            return solKey.map(function(sol) {
+            return solKey.map(function (sol) {
                if (!res[sol][kind] || !res[sol][kind][value]) {
                   return 0;
                } else {
@@ -121,7 +121,7 @@ window.addEventListener("DOMContentLoaded", () => {
          const maxWind = checkValue("HWS", "mx");
          const minWind = checkValue("HWS", "mn");
          const avWind = checkValue("HWS", "av");
-         const actualDate = solKey.map(sol => res[sol].First_UTC);
+         const actualDate = solKey.map((sol) => res[sol].First_UTC);
          const months = {
             0: "Jan.",
             1: "Feb.",
@@ -134,7 +134,7 @@ window.addEventListener("DOMContentLoaded", () => {
             8: "Sep.",
             9: "Oct.",
             10: "Nov.",
-            11: "Dec."
+            11: "Dec.",
          };
 
          for (let i = 0; i < tempContainer.length; i++) {
@@ -149,13 +149,18 @@ window.addEventListener("DOMContentLoaded", () => {
                const celsius = "&#778 C";
                const metPerSec = "m/s";
                function weather(min, max, av, unit) {
-                  tempContainer[i].innerHTML = `<div class="footer-info__subtitle"><h3>Sol ${
-                     solKey[i]
-                  }</h3><h3>${nameMonth} ${numDay}</h3></div><p>High: ${max[i].toFixed(
-                     3
-                  )} ${unit} </p><p>Low: ${min[i].toFixed(3)} ${unit} </p><p>Avg: ${av[i].toFixed(
-                     3
-                  )} ${unit} </p>`;
+                  if (min[i] && max[i] && av[i] && unit) {
+                     tempContainer[i].innerHTML = `<div class="footer-info__subtitle"><h3>Sol ${
+                        solKey[i]
+                     }</h3><h3>${nameMonth} ${numDay}</h3></div><p>High: ${max[i].toFixed(
+                        3
+                     )} ${unit} </p><p>Low: ${min[i].toFixed(3)} ${unit} </p><p>Avg: ${av[
+                        i
+                     ].toFixed(3)} ${unit} </p>`;
+                  } else {
+                     tempContainer[i].innerHTML =
+                        '<div class="footer-info__subtitle">No Data</div>';
+                  }
                }
 
                weather(minTemp, maxTemp, avTemp, celsius);
@@ -169,7 +174,7 @@ window.addEventListener("DOMContentLoaded", () => {
             }
          }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
 });
 
 // Intersection observer to hide header title and pointer button
@@ -180,17 +185,17 @@ function intersection() {
    const headerPointer = document.querySelector(".header__pointer");
 
    const titleOptions = {
-      threshold: 0
+      threshold: 0,
    };
 
-   const hideTitle = new IntersectionObserver(function(entries, hideTitle) {
-      entries.forEach(entry => {
+   const hideTitle = new IntersectionObserver(function (entries, hideTitle) {
+      entries.forEach((entry) => {
          if (entry.isIntersecting) {
-            [headerTitle, headerPointer].forEach(item => {
+            [headerTitle, headerPointer].forEach((item) => {
                item.classList.add("disappear");
             });
          } else {
-            [headerTitle, headerPointer].forEach(item => {
+            [headerTitle, headerPointer].forEach((item) => {
                item.classList.remove("disappear");
             });
          }
@@ -206,11 +211,8 @@ intersection();
 
 $(".header__pointer a").smoothScroll({
    offset: 0,
-   afterScroll: function() {
-      $(this)
-         .closest(".header__pointer")
-         .find("a")
-         .removeClass("active");
+   afterScroll: function () {
+      $(this).closest(".header__pointer").find("a").removeClass("active");
       $(this).addClass("active");
-   }
+   },
 });
