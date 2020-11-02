@@ -4,9 +4,14 @@
    box-sizing: border-box;
 }
 
+@font-face {
+   font-family: syne;
+   src: url(../font/SyneMono-Regular.ttf);
+}
+
 body {
    margin: 0px;
-   font-family: Georgia, "Times New Roman", Times, serif;
+   font-family: syne, Georgia, "Times New Roman", Times, serif;
 }
 
 p {

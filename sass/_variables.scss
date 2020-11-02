@@ -1,31 +1,31 @@
-$button-color-red: #a76967;
-$button-color-blue: #008a98;
+$button-color-red: #771c17;
+$button-color-blue: #111828;
 $header-title-bg-color: rgba(0, 0, 0, 0.5);
 $border-button-color: darkgrey;
-$background-color: #252d33;
+$background-color: #155873;
 $border-value: 50%;
 $h-color: #fff;
 $section-color: rgba(0, 0, 0, 0.85);
 
 $breakpoints: (
    xsmall: (
-      min-width: 460px
+      min-width: 460px,
    ),
    small: (
-      min-width: 640px
+      min-width: 640px,
    ),
    medium: (
-      min-width: 800px
+      min-width: 800px,
    ),
    large: (
-      min-width: 1024px
+      min-width: 1024px,
    ),
    xlarge: (
-      min-width: 1200px
+      min-width: 1200px,
    ),
    xxlarge: (
-      min-width: 1440px
-   )
+      min-width: 1440px,
+   ),
 );
 
 @mixin media-query($breakpoint) {
@@ -65,11 +65,12 @@ $breakpoints: (
    height: $height;
    margin: 5px 10px;
    box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.5);
-   border: 1px solid #fff;
-   border-radius: 5%;
+   border: 2px outset #fff;
+   border-radius: 5px;
    color: #fff;
    font-size: large;
    transition: box-shadow 0.1s, transform 0.1s;
+   font-family: syne, Georgia, "Times New Roman", Times, serif;
    cursor: pointer;
 }
 

@@ -1,11 +1,12 @@
 .gallery {
-   border-top: 1px solid lighten($background-color, $border-value);
    @include position-transform;
+
    &__title {
       text-align: center;
       margin: 0;
       padding: 1.5rem;
-      background-color: $section-color;
+      background-color: #111828;
+
       h2 {
          padding: 0.2rem;
          font-size: 1.5rem;
@@ -21,9 +22,8 @@
       @include media-query(medium) {
          height: 45vw;
          flex-direction: row;
-         border-top: 1px solid lighten($background-color, $border-value);
-         border-bottom: 1px solid lighten($background-color, $border-value);
       }
+
       .gallery__img {
          @include flex-container;
          height: 50%;
@@ -34,6 +34,7 @@
             border: 0px;
             height: 90%;
          }
+
          .gallery__picture {
             max-height: 100%;
             max-width: 100%;

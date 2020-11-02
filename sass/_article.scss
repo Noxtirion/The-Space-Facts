@@ -1,14 +1,17 @@
 .article {
    @include position-transform;
    background-color: $section-color;
+
    &__container {
       @include containers($height: auto);
       color: #fff;
       text-shadow: 1px 1px 1px #000;
+
       .article__title {
          text-align: center;
          padding: 0.5rem;
       }
+
       .article__text {
          margin: 0 auto;
          padding: 0 0.5rem 2rem;
